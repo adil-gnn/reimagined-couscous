@@ -1,0 +1,150 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  background: #f3f5f9;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.booking-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 12px 40px;
+}
+.booking-page h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.booking-subtitle {
+  margin: 4px 0 12px;
+  color: #4b5563;
+}
+
+.booking-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.booking-section h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.booking-section input,
+.booking-section textarea,
+.booking-section button {
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.booking-section button {
+  cursor: pointer;
+  background: #f8fafc;
+}
+
+.booking-section button:disabled,
+.booking-section input:disabled,
+.booking-section textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.section-message {
+  margin: 0;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.section-message--loading {
+  background: #eef2ff;
+}
+
+.section-message--error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.section-message--empty,
+.section-message--info {
+  background: #f9fafb;
+  color: #374151;
+}
+
+.field-error {
+  margin: -2px 0 8px;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+.tenant-card p {
+  margin: 4px 0;
+}
+
+.service-list,
+.slots-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.service-button,
+.slot-button {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.slot-button {
+  text-align: center;
+}
+
+.service-button.is-selected,
+.slot-button.is-selected {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.service-button__name {
+  display: block;
+  font-weight: 600;
+}
+
+.service-button__meta {
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.selection-summary {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 640px) {
+  .booking-page {
+    padding: 24px 20px 48px;
+  }
+
+  .service-list,
+  .slots-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
