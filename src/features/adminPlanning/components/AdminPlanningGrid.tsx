@@ -53,10 +53,19 @@ export function AdminPlanningGrid({
   onUpdateStatus,
   onEditAppointment,
 }: AdminPlanningGridProps): JSX.Element {
+  const hasUnassignedAppointments = appointments.some((appointment) => appointment.staff_id === null);
+  const staffColumns =
+    viewerRole !== 'STAFF' && hasUnassignedAppointments
+      ? [...staff, { id: '__UNASSIGNED__', display_name: 'Non assigné' }]
+      : staff;
+
   return (
     <div className="planning-columns" role="list" aria-label="Planning jour par staff">
-      {staff.map((staffItem) => {
-        const staffAppointments = appointments.filter((appointment) => appointment.staff_id === staffItem.id);
+      {staffColumns.map((staffItem) => {
+        const isUnassignedColumn = staffItem.id === '__UNASSIGNED__';
+        const staffAppointments = appointments.filter((appointment) =>
+          isUnassignedColumn ? appointment.staff_id === null : appointment.staff_id === staffItem.id,
+        );
 
         return (
           <article key={staffItem.id} className="planning-column" role="listitem">

@@ -105,7 +105,7 @@ export function AdminEditAppointmentForm({
         onChange={(event) => setStaffId(event.target.value)}
         disabled={updateMutation.isPending || staff.length === 0}
       >
-        <option value="">Sans préférence (auto-assign)</option>
+        <option value="">Sans staff (assigner plus tard)</option>
         {staff.map((staffMember) => (
           <option key={staffMember.id} value={staffMember.id}>
             {staffMember.display_name}
@@ -158,4 +158,3 @@ export function AdminEditAppointmentForm({
     </form>
   );
 }
-

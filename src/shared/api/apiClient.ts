@@ -1,6 +1,6 @@
 import { ApiErrorPayload } from '../types/api';
 
-type ApiMethod = 'GET' | 'POST' | 'PATCH';
+type ApiMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
 type ApiRequestOptions = {
   body?: unknown;
@@ -94,4 +94,8 @@ export function apiPost<T>(path: string, body: unknown, headers?: Record<string,
 
 export function apiPatch<T>(path: string, body: unknown, headers?: Record<string, string>): Promise<T> {
   return apiRequest<T>('PATCH', path, { body, headers });
+}
+
+export function apiDelete(path: string): Promise<void> {
+  return apiRequest<void>('DELETE', path);
 }

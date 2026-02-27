@@ -176,6 +176,62 @@
   width: auto;
 }
 
+.admin-services-list {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-service-card {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.admin-service-card.is-inactive {
+  opacity: 0.75;
+  background: #f8fafc;
+}
+
+.admin-service-card__name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.admin-service-card__meta {
+  margin: 4px 0;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.admin-service-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.admin-service-card__actions button {
+  width: auto;
+}
+
+.admin-checkbox-grid {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.admin-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.admin-checkbox-item input[type='checkbox'] {
+  width: auto;
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .admin-layout {
     grid-template-columns: 1fr;

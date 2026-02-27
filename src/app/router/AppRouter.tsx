@@ -3,8 +3,9 @@ import { AdminRouteGuard } from '../../features/adminAuth/components/AdminRouteG
 import { RequireAdminRoles } from '../../features/adminAuth/components/RequireAdminRoles';
 import { AdminLayoutPage } from '../../features/adminAuth/pages/AdminLayoutPage';
 import { AdminLoginPage } from '../../features/adminAuth/pages/AdminLoginPage';
-import { AdminPlaceholderPage } from '../../features/adminAuth/pages/AdminPlaceholderPage';
 import { AdminPlanningPage } from '../../features/adminPlanning/pages/AdminPlanningPage';
+import { AdminServicesPage } from '../../features/adminServices/pages/AdminServicesPage';
+import { AdminStaffPage } from '../../features/adminStaff/pages/AdminStaffPage';
 import { PublicBookingPage } from '../../features/publicBooking/pages/PublicBookingPage';
 
 const router = createBrowserRouter([
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
             path: 'services',
             element: (
               <RequireAdminRoles allowed={['ADMIN']}>
-                <AdminPlaceholderPage title="Services" />
+                <AdminServicesPage />
               </RequireAdminRoles>
             ),
           },
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
             path: 'staff',
             element: (
               <RequireAdminRoles allowed={['ADMIN']}>
-                <AdminPlaceholderPage title="Staff" />
+                <AdminStaffPage />
               </RequireAdminRoles>
             ),
           },

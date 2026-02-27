@@ -83,7 +83,7 @@ export type UpdateAdminAppointmentResponse = {
   appointment_id: string;
   status: string;
   service_id: string;
-  staff_id: string;
+  staff_id: string | null;
   start_at: string;
   end_at: string;
 };
