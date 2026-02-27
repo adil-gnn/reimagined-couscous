@@ -1,6 +1,6 @@
 import { ApiErrorPayload } from '../types/api';
 
-type ApiMethod = 'GET' | 'POST';
+type ApiMethod = 'GET' | 'POST' | 'PATCH';
 
 type ApiRequestOptions = {
   body?: unknown;
@@ -64,6 +64,7 @@ async function apiRequest<T>(method: ApiMethod, path: string, options: ApiReques
 
   const response = await fetch(`${path}${buildQueryString(options.query)}`, {
     method,
+    credentials: 'include',
     headers,
     body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
   });
@@ -89,4 +90,8 @@ export function apiGet<T>(path: string, query?: Record<string, string | undefine
 
 export function apiPost<T>(path: string, body: unknown, headers?: Record<string, string>): Promise<T> {
   return apiRequest<T>('POST', path, { body, headers });
+}
+
+export function apiPatch<T>(path: string, body: unknown, headers?: Record<string, string>): Promise<T> {
+  return apiRequest<T>('PATCH', path, { body, headers });
 }
